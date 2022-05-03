@@ -1,19 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <max-table :data="tableData" :columns="columnNames" :pagination="paginationData"></max-table>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MaxTable from "./components/MaxTable.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    MaxTable,
+  },
+  data: function () {
+    return {
+      tableData: [
+        { name: "Mfon", age: 10 },
+        { name: "Eno", age: 11 },
+      ],
+      columnNames: [
+        { name: "name", display: "Name" },
+        { name: "age", display: "Age" },
+      ],
+      paginationData: {
+        currentPage: 15,
+        pageSize: 20,
+        totalPages: 20
+      }
+    };
+  },
+};
 </script>
 
 <style>
